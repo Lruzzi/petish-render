@@ -43,7 +43,7 @@ async function registerSer(req, res) {
                 from: 'security@petish.com',
                 to: newUser.email,
                 subject: 'Petish Email Verification',
-                html: generateEmailTemplate(`http://localhost:3000/petish/email-verification?token=${otp}&id=${newUser._id}`)
+                html: generateEmailTemplate(`https://petish-web.onrender.com/petish/email-verification?token=${otp}&id=${newUser._id}`)
             };
             transporter.sendMail(mailOptions, function(error, info){
                 if (error) {

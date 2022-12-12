@@ -43,7 +43,7 @@ async function forgotPassword(req, res) {
         from: 'security@petish.com',
         to: user.email,
         subject: "Petish PASSWORD RESET",
-        html: generatePasswordReset(`http://localhost:3000/petish/reset-password?token=${cryptToken}&id=${user._id}`)
+        html: generatePasswordReset(`https://petish-web.onrender.com/petish/reset-password?token=${cryptToken}&id=${user._id}`)
     })
     res.json({
         success: true,
