@@ -42,14 +42,14 @@ router.get("/verify-token", isResetTokenValid, (req, res)=> {
 router.post("/input-pet", protect, validatePet, validate, petInput)
 router.put("/update-pet", protect, validatePet, validate, updatePet)
 router.delete("/delete-pet", protect, deletePet)
-router.get("/get-pet", protect, getPet)
+router.post("/get-pet", protect, getPet)
 router.get("/get-all-pet", protect, getAllPets)
 
 //Task
 router.post("/input-task", protect, validateTask, validate, inputTask)
 router.put("/update-task", protect, validateTask, validate, updateTask)
 router.delete("/delete-task", protect, deleteTask)
-router.get("/get-task", protect, getTask)
+router.post("/get-task", protect, getTask)
 router.get("/get-notif", protect, getNotify)
 router.get("/get-task-today", protect, getTaskToday)
 router.get("/get-all-task", protect, getAllTask)

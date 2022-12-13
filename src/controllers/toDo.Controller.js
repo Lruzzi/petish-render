@@ -72,11 +72,13 @@ const getTaskToday = async (req, res) => {
 }
 
 const getAllTask = async (req, res) => {
-  try{const result = await toDoModel.find({owner: req.user.id});
+  try{
+    const result = await toDoModel.find({owner: req.user.id});
   return res.status(200).json({
     success: true,
     message: "All task found",
     task: result,
+
   });}
   catch(err){
     return res.status(500).json({
