@@ -22,7 +22,7 @@ const { getFood, findFood, filterFood } = require('../controllers/food.Controlle
 
 //register procedure
 router.post("/register", validateUser, validate, register);
-router.post("/verify-email", verifyEmail)
+router.post("/email-verification", verifyEmail)
 
 //login
 router.post("/login", login)
