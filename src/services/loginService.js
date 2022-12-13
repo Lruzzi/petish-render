@@ -19,9 +19,6 @@ async function loginSer(req, res) {
         if(isUser){
             const isMatch = await compare.comparePassword(password, isUser)
             if (isMatch === true) {
-                if(isUser.verified === false){
-                    return sendError(res, "Please verify your email!");
-                }
                 const tokenj = jwt.sign({
                     userId: isUser._id
                 }, process.env.JWT_SECRET, {

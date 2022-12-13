@@ -45,14 +45,14 @@ async function registerSer(req, res) {
                 subject: 'Petish Email Verification',
                 html: generateEmailTemplate(`https://https://petish-back.onrender.com/petish/email-verification?token=${otp}&id=${newUser._id}`)
             };
-            transporter.sendMail(mailOptions, function(error, info){
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log('Email sent: ' + info.response);
-                }
-            });
-            res.json({success: true, user:{id: newUser._id, name: newUser.name, email: newUser.email, username: newUser.username, verified: newUser.verified}, message:'check email'});
+            // transporter.sendMail(mailOptions, function(error, info){
+            //     if (error) {
+            //         console.log(error);
+            //     } else {
+            //         console.log('Email sent: ' + info.response);
+            //     }
+            // });
+            res.json({success: true, user:{id: newUser._id, name: newUser.name, email: newUser.email, username: newUser.username, verified: newUser.verified}, message:'please login'});
         }
         catch(err){
              res.send(err)};
