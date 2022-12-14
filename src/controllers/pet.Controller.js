@@ -75,10 +75,35 @@ const getPet = async function (req, res) {
                 message: "Not Authorized"
             })
         }
+        const currentYear = new Date().getFullYear();
+        const currentMonth = new Date().getMonth();
+        const currentDay = new Date().getDate();
+
+        const year = new Date(result.birthdate).getFullYear();
+        const month = new Date(result.birthdate).getMonth();
+        const day = new Date(result.birthdate).getDate();
+
+        var umur = 0;
+        if(currentYear > year) {
+            umur = (currentYear - year) + " " + "tahun";
+            if (currentMonth < month || (currentMonth == month && currentDay < day)) {
+                umur = (umur-1) + " " + "tahun";
+            }
+        }
+        else {
+            if (currentMonth > month) {
+                umur = (currentMonth - month) + " " + "bulan";
+            }
+            else {
+                umur = (currentDay - day) + " " + "hari";
+            }
+        }
         return res.status(200).json({
             success: true,
             message: "Pet found",
+            age: umur,
             result
+
         });
     } catch (error) {
         console.log(error)
