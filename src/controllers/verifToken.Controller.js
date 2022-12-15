@@ -34,17 +34,18 @@ async function verifyEmail(req, res) {
 
   await otpModel.findByIdAndDelete(otp._id);
   await user.save();
+  var username = user.username
   transporter.sendMail({
     from: "security@petish.com",
     to: user.email,
     subject: "Petish Account Verified",
-    html: verifyEmailTemplate("Now you can Login to Petish"),
+    html: verifyEmailTemplate(username),
   });
   res.end(`
     <html>
 
     <head>
-        <title>IKN Railway Management</title>
+        <title>PET HEALTHIEST</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <style>
