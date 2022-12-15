@@ -16,6 +16,8 @@ exports.generateEmailTemplate = url => {
         color: #fff; cursor: pointer;
         text-decoration: none; display: inline-block;
         ">Verify</a>
+        <h3>Or using this link below</h1>
+        <h3>${url}</h1>
     </div>
     <p style="font-size:0.9em;">Regards,<br />PETISH</p>
     <hr style="border:none;border-top:1px solid #eee" />
